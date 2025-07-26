@@ -1,55 +1,26 @@
-# miva-lab-work
+# miva-lab-work on Titanic dataset
+  
   ## Team Members
-  Oluwaseyifunmi, Fidelix, Kaothara, Aminat, Ibraheem
+  Oluwaseyifunmi, Fidelix, Kaothara, Aminat, Ibraheem, Yetunde and Toluwalope
+To be done from Saturday, 26 July to Monday, 28 July, 2025
 
   ### What needs to be done
-1\. Data Explorer (Task: Data Exploration)  
-What to be done  
-\- Open the Titanic passenger list (dataset) in Python.    
-\- Show the first few passengers (rows) so everyone knows what’s inside.    
-\- Check if any passenger info is missing (e.g., age, ticket price).    
-\- Draw pictures (visualizations) to show how things like age or ticket class relate to survival.  
-
-Tools:  
+1\. Data Exploration Tools:  
 \- **Python code: \`sns.load\_dataset('titanic')\`, \`head()\`, \`isnull()\`, \`sns.countplot()\`**
 
-2\. Data Cleaner (Task: Data Cleaning)  
-What to be done    
-\- Fix missing passenger ages by guessing (imputing) the average age.    
-\- Fill in missing embarkation ports (e.g., use the most common port).    
-\- Look for weird numbers (outliers) in ticket prices using boxplots and decide what to do.  
-
-Tools:  
+2\. Data Cleaning Tools:  
 **\- Python code: \`fillna()\`, \`sns.boxplot()\`, \`dropna()\`**  
 
-3\. Feature Inventor (Task: Feature Engineering)    
-What needs to be done  
-\- Create a Family Size feature by adding siblings (SibSp) and parents (Parch).    
-\- Group ages into buckets like "kids," "teens," "adults," and "seniors."    
-\- Group ticket prices into "cheap," "medium," and "expensive."  
-
-\*\*Tools:  
+3\.Feature Engineering Tools:  
 **\- Python code: \`df\['FamilySize'\] \= df\['SibSp'\] \+ df\['Parch'\]\`, \`pd.cut()\`**
 
-4\. Data Magician (Task: Data Transformation)    
-What needs to be done  
-\- Turn words (categories) like "male/female" or "embarkation port" into numbers (encoding).    
-\- Scale numbers like age, fare, and family size so they’re fair for the model.  
-
-Tools:  
+4\. Data Transformation Tools:  
 \- **Python code: \`pd.get\_dummies()\`, \`StandardScaler()\`, \`MinMaxScaler()\`**  
 
-5\. Model Trainer (Task: Model Preparation)    
-What needs to be done  
-\- Split passengers into a training group (70%) and a test group (30%).    
-\- Teach the computer (train a model) to guess survival using Logistic Regression.    
-\- Check if the computer is good at guessing (accuracy, confusion matrix).  
-
-Tools:    
+5\. Model Preparation Tools:    
 **\- Python code: \`train\_test\_split()\`, \`LogisticRegression()\`, \`classification\_report()\`**  
 
-6\. Storyteller (Task: Report Writing)    
-What needs to be done  
+6\. Report Writing     
 \- Write a summary of what the team did (like a detective’s notebook).    
 \- Explain the steps in simple words (no confusing math\!).    
 \- Show pictures of the work (graphs, tables) and say how good the model is.  
