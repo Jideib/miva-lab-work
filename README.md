@@ -1,44 +1,60 @@
-# miva-lab-work on Titanic dataset
-  
-  ## Team Members
-  Oluwaseyifunmi, Fidelix, Kaothara, Aminat, Ibraheem, Yetunde and Toluwalope
-To be done from Saturday, 26 July to Monday, 28 July, 2025
+# Titanic Survival Prediction Project
 
-  ### What needs to be done
-1\. Data Exploration Tools:  
-\- **Python code: \`sns.load\_dataset('titanic')\`, \`head()\`, \`isnull()\`, \`sns.countplot()\`**
+## Overview
+This project predicts passenger survival on the Titanic using machine learning. The implementation includes data cleaning, feature engineering, and logistic regression modeling.
 
-2\. Data Cleaning Tools:  
-**\- Python code: \`fillna()\`, \`sns.boxplot()\`, \`dropna()\`**  
+## Dataset
+The dataset contains information about 891 Titanic passengers, including:
+- Survival status (target variable)
+- Passenger class
+- Age
+- Sex
+- Fare amount
+- Number of siblings/spouses aboard
+- Number of parents/children aboard
+- Port of embarkation
 
-3\.Feature Engineering Tools:  
-**\- Python code: \`df\['FamilySize'\] \= df\['SibSp'\] \+ df\['Parch'\]\`, \`pd.cut()\`**
+## Implementation Steps
 
-4\. Data Transformation Tools:  
-\- **Python code: \`pd.get\_dummies()\`, \`StandardScaler()\`, \`MinMaxScaler()\`**  
+### 1. Data Exploration
+- Loaded and examined the dataset
+- Checked for missing values
+- Visualized target distribution
 
-5\. Model Preparation Tools:    
-**\- Python code: \`train\_test\_split()\`, \`LogisticRegression()\`, \`classification\_report()\`**  
+### 2. Feature Engineering
+- Created `FamilySize` from sibling and parent counts
+- Binned `age` into meaningful categories
+- Categorized `fare` into quartiles
 
-6\. Report Writing     
-\- Write a summary of what the team did (like a detective’s notebook).    
-\- Explain the steps in simple words (no confusing math\!).    
-\- Show pictures of the work (graphs, tables) and say how good the model is.  
+### 3. Data Preprocessing
+- Handled missing values
+- Scaled numerical features
+- Encoded categorical variables
 
-Tools:    
-\- Words, graphs, and a clear conclusion\!  
+### 4. Model Training
+- Logistic regression classifier
+- 70/30 train-test split
+- Pipeline for preprocessing and modeling
 
-How to Work Together:
+### 5. Evaluation
+- Accuracy: XX%
+- Confusion matrix
+- Classification report
 
-1. We need to work together simultaneously via Github, so everyone drops your Github account username and Ibraheem Alawode will create a repo.  
-2. If needs be, we might just have to do a crash class on Github collaboration  
-3. We need to pick this task and do the coding  
-4. We are writing with Latex and we will all be editing it together.  
-5. Kindly pick any of the tasks below and Two people can pick one task.
+## How to Run
+1. Install requirements: 
+    'pip install pandas matplotlib seaborn matplotlib scikit-learn'
+2. Run all cells in the Jupyter notebook
 
-1\. Data Explorer starts (Task 1).    
-2\. Data Cleaner fixes missing/weird data (Task 2).    
-3\. Feature Inventor and Data Magician work together (Tasks 3 & 4).    
-4\. Model Trainer builds and tests the model (Task 5).    
-5\. Storyteller writes the final report (Task 6).
+## Results
+The model achieved 78% accuracy with the following key insights:
+- Most important positive survival factors: 
+- Female
+- Infants
+- Most important negative survival factors:
+- Male
+- Family Size
+
+
+
 
