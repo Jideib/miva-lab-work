@@ -43,7 +43,7 @@ The dataset contains information about 891 Titanic passengers, including:
 
 ## How to Run
 1. Install requirements: 
-    'pip install pandas matplotlib seaborn matplotlib scikit-learn'
+    `pip install pandas matplotlib seaborn matplotlib scikit-learn`
 2. Run all cells in the Jupyter notebook
 
 ## Results
