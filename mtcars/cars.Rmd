@@ -44,11 +44,50 @@ sum(is.na(mtcars))
 summary(mtcars)
 ```
 Hypothesis Testing by Toluwalope and Oluwaseyifunmi
+```{r}
+#Two-sample t-test for mpg by cylinder groups (4 vs 6)
+cat("\n4. Two-sample t-test for mpg (4 cyl vs 6 cyl):\n")
+mpg_4cyl <- mtcars$mpg[mtcars$cyl == 4]
+mpg_6cyl <- mtcars$mpg[mtcars$cyl == 6]
 
+t_test_result <- t.test(mpg_4cyl, mpg_6cyl)
+print(t_test_result)
+```
+```{r}
+# Interpretation
+cat("\nInterpretation:\n")
+if (t_test_result$p.value < 0.05) {
+  cat("With p-value =", t_test_result$p.value, 
+      "we reject the null hypothesis. There is a significant difference in mean mpg between 4-cylinder and 6-cylinder cars.\n")
+} else {
+  cat("With p-value =", t_test_result$p.value, 
+      "we fail to reject the null hypothesis. No significant difference in mean mpg between 4-cylinder and 6-cylinder cars.\n")
+}
+```
+
+```{r}
+cat("\n5. One-sample proportion test for automatic transmission:\n")
+n_auto <- sum(mtcars$am == 0)
+n_total <- nrow(mtcars)
+prop_test_result <- prop.test(n_auto, n_total, p = 0.5, correct = FALSE)
+print(prop_test_result)
+```
+```{r}
+# Interpretation
+cat("\nInterpretation:\n")
+if (prop_test_result$p.value < 0.05) {
+  cat("With p-value =", prop_test_result$p.value, 
+      "we reject the null hypothesis. The proportion of automatic cars is significantly different from 50%.\n")
+} else {
+  cat("With p-value =", prop_test_result$p.value, 
+      "we fail to reject the null hypothesis. The proportion of automatic cars is not significantly different from 50%.\n")
+}
+```
+
+Correlation Analysis by Aminat and Fidelix
 ```{r}
 
 ```
-Correlation Analysis by Aminat and Fidelix
 
 ```{r}
 
