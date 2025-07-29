@@ -23,22 +23,25 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ## Slide with R Output
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
+```{r mtcars, echo = TRUE} ## Loading the Mt Cars
 ```
 ```{r}
 
 ```
-Data Exploration by Fidelix and Kaothara
+## Data Exploration by Fidelix and Kaothara
 
 ```{r}
-
+### First 6 rows
+dim(mtcars) ## we have 32 rows and 11 columns
+head(mtcars, 6)
+```
+```{r}
+is.na(mtcars)
+sum(is.na(mtcars))
+## There is no missing values in the dataset
+```
+```{r}
+summary(mtcars)
 ```
 Hypothesis Testing by Toluwalope and Oluwaseyifunmi
 
