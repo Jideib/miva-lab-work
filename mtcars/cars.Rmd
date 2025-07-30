@@ -98,7 +98,7 @@ cat("\n7. Correlation heatmap:\n")
 corrplot(cor_matrix, method = "color", type = "upper", 
          tl.col = "black", tl.srt = 45, addCoef.col = "black")
 ```
-Regression Modelling by Yetunde and Ibraheem
+
 ```{r}
 # Identify highly correlated variables
 cat("\n8. Highly correlated variables (absolute correlation > 0.7):\n")
@@ -111,15 +111,61 @@ high_cor_pairs <- data.frame(
 print(high_cor_pairs)
 ```
 
+Regression Modelling by Yetunde and Ibraheem
+```{r}
+# Simple linear regression (mpg ~ wt)
+cat("\n9. Simple linear regression (mpg ~ wt):\n")
+lm_simple <- lm(mpg ~ wt, data = mtcars)
+summary(lm_simple)
+
+```
+
 
 ```{r}
-)
-
+# Interpretation
+cat("\nInterpretation of simple linear regression:\n")
+cat("Regression equation: mpg =", coef(lm_simple)[1], "+", coef(lm_simple)[2], "* wt\n")
+cat("For each 1000 lb increase in weight, mpg decreases by", abs(coef(lm_simple)[2]), "on average.\n")
+cat("R-squared value of", summary(lm_simple)$r.squared, 
+    "means that", round(summary(lm_simple)$r.squared*100, 1), 
+    "% of the variability in mpg is explained by weight.\n")
 ```
-
+```{r}
+#Multiple linear regression (mpg ~ wt + hp + cyl)
+cat("\n10. Multiple linear regression (mpg ~ wt + hp + cyl):\n")
+lm_multiple <- lm(mpg ~ wt + hp + cyl, data = mtcars)
+summary(lm_multiple)
 ```
 
 ```{r}
-
+# Interpretation
+cat("\nInterpretation of multiple linear regression:\n")
+cat("Regression equation: mpg =", coef(lm_multiple)[1], "+", 
+    coef(lm_multiple)[2], "* wt +", 
+    coef(lm_multiple)[3], "* hp +", 
+    coef(lm_multiple)[4], "* cyl\n")
+cat("When holding other variables constant:\n")
+cat("- For each 1000 lb increase in weight, mpg decreases by", abs(coef(lm_multiple)[2]), "\n")
+cat("- For each unit increase in horsepower, mpg decreases by", abs(coef(lm_multiple)[3]), "\n")
+cat("- For each additional cylinder, mpg decreases by", abs(coef(lm_multiple)[4]), "\n")
+cat("Adjusted R-squared value of", summary(lm_multiple)$adj.r.squared, 
+    "means that", round(summary(lm_multiple)$adj.r.squared*100, 1), 
+    "% of the variability in mpg is explained by the model.\n")
 ```
+```{r}
+# Model comparison
+cat("\n11. Model comparison:\n")
+cat("Simple model R-squared:", summary(lm_simple)$r.squared, "\n")
+cat("Multiple model Adjusted R-squared:", summary(lm_multiple)$adj.r.squared, "\n")
+if (summary(lm_multiple)$adj.r.squared > summary(lm_simple)$r.squared) {
+  cat("The multiple regression model explains more variance in mpg and is preferred.\n")
+} else {
+  cat("The simple regression model is sufficient.\n")
+}
+```
+
 Visualization by Ibraheem and Oluwaseyifunmi
+```{r}
+```
+
+```
