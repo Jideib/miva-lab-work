@@ -171,6 +171,33 @@ if (summary(lm_multiple)$adj.r.squared > summary(lm_simple)$r.squared) {
 
 Visualization by Ibraheem and Oluwaseyifunmi
 ```{r}
+# Scatter plot of mpg vs wt with regression line
+cat("\n12. Creating visualizations...\n")
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "MPG vs Weight with Regression Line",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon") +
+  theme_minimal()
+
+# Boxplot of mpg by cylinder count
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(title = "MPG Distribution by Number of Cylinders",
+       x = "Number of Cylinders",
+       y = "Miles per Gallon") +
+  theme_minimal()
+
+# Histogram of mpg with normal curve overlay
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(aes(y = ..density..), bins = 10, fill = "lightgreen", color = "black") +
+  stat_function(fun = dnorm, args = list(mean = mean(mtcars$mpg), sd = sd(mtcars$mpg)), 
+                color = "red", size = 1) +
+  labs(title = "Distribution of MPG with Normal Curve",
+       x = "Miles per Gallon",
+       y = "Density") +
+  theme_minimal()
 ```
 
 ```
