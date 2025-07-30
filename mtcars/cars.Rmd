@@ -26,7 +26,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r mtcars, echo = TRUE} ## Loading the Mt Cars
 ```
 ```{r}
-
+library(corrplot)
 ```
 ## Data Exploration by Fidelix and Kaothara
 
@@ -86,13 +86,38 @@ if (prop_test_result$p.value < 0.05) {
 
 Correlation Analysis by Aminat and Fidelix
 ```{r}
-
+# Compute correlation matrix
+cat("\n6. Correlation matrix for numerical variables:\n")
+cor_matrix <- cor(mtcars)
+print(cor_matrix)
 ```
 
 ```{r}
-
+# Visualize correlation matrix with heatmap
+cat("\n7. Correlation heatmap:\n")
+corrplot(cor_matrix, method = "color", type = "upper", 
+         tl.col = "black", tl.srt = 45, addCoef.col = "black")
 ```
 Regression Modelling by Yetunde and Ibraheem
+```{r}
+# Identify highly correlated variables
+cat("\n8. Highly correlated variables (absolute correlation > 0.7):\n")
+high_cor <- which(abs(cor_matrix) > 0.7 & abs(cor_matrix) < 1, arr.ind = TRUE)
+high_cor_pairs <- data.frame(
+  Variable1 = rownames(cor_matrix)[high_cor[,1]],
+  Variable2 = colnames(cor_matrix)[high_cor[,2]],
+  Correlation = cor_matrix[high_cor]
+)
+print(high_cor_pairs)
+```
+
+
+```{r}
+)
+
+```
+
+```
 
 ```{r}
 
